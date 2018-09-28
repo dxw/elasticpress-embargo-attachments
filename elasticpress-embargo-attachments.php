@@ -15,3 +15,4 @@ Author URI: http://dxw.com
 
 //autoloads classes, no other setup required
 $registrar = require __DIR__.'/src/load.php';
+$registrar->register();
