@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Ensure consistent use of Europe/London timezone, on the assumption that's what most of our users will be concerned with
 - Correct composer platform syntax
 - vendor.phar included
 

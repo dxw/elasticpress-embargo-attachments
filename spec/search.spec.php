@@ -57,7 +57,7 @@ describe(\ElasticPress\MediaLibraryEmbargo\Search::class, function () {
                 allow('is_admin')->toBeCalled()->andReturn(false);
                 allow('is_archive')->toBeCalled()->andReturn(false);
                 allow($this->query)->toReceive('is_search')->andReturn(true);
-                allow('date')->toBeCalled()->with('Y-m-d H:i:s')->andReturn('2018-03-01 12:00:01');
+                allow('DateTime')->toReceive('format')->with('Y-m-d H:i:s')->andReturn('2018-03-01 12:00:01');
 
                 allow($this->query)->toReceive('set');
                 expect($this->query)->toReceive('set')

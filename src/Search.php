@@ -23,6 +23,8 @@ class Search implements \Dxw\Iguana\Registerable
             return;
         }
         
+        $dateTime = new \DateTime("now", new \DateTimeZone('Europe/London'));
+
         $query->set('meta_query', [
             [
                 'relation' => 'OR',
@@ -32,7 +34,7 @@ class Search implements \Dxw\Iguana\Registerable
                 ],
                 [
                     'key' => 'embargo_datetime',
-                    'value' => date('Y-m-d H:i:s'),
+                    'value' => $dateTime->format('Y-m-d H:i:s'),
                     'compare' => '<=',
                     'type' => 'DATETIME'
                 ]
