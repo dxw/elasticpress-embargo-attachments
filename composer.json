@@ -9,7 +9,8 @@
   },
   "require-dev": {
       "dxw/phar-install": "^1.0",
-      "friendsofphp/php-cs-fixer": "^2.6.0"
+      "friendsofphp/php-cs-fixer": "^2.6.0",
+    "kahlan/kahlan": "^6.0"
   },
   "require": {
     "dxw/iguana": "^1.1"
