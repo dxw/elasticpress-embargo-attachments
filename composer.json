@@ -8,22 +8,16 @@
     "post-update-cmd": "vendor/bin/phar-install"
   },
   "require-dev": {
-      "10up/wp_mock": "^0.2.0",
       "dxw/phar-install": "^1.0",
       "friendsofphp/php-cs-fixer": "^2.6.0",
-      "peridot-php/peridot": "^1.19",
-      "peridot-php/peridot-dot-reporter": "^1.0",
-      "peridot-php/leo": "^1.6",
-      "eloquent/asplode": "^2.2",
-      "php-mock/php-mock-mockery": "^1.1",
-      "peridot-php/peridot-prophecy-plugin": "~1.0"
+    "kahlan/kahlan": "^6.0"
   },
   "require": {
     "dxw/iguana": "^1.1"
   },
   "config": {
     "platform": {
-        "php": "^7.4"
+        "php": "7.4"
     }
   }
 }

@@ -19,7 +19,7 @@ class Document implements \Dxw\Iguana\Registerable
             'fields' => [
                 [
                     'key' => 'field_5ab24629f9d23',
-                    'label' => 'Embargo until',
+                    'label' => 'Embargo until (UK time)',
                     'name' => 'embargo_datetime',
                     'type' => 'date_time_picker',
                     'instructions' => '',

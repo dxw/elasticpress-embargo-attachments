@@ -5,90 +5,62 @@ use \phpmock\mockery\PHPMockery;
 
 describe(\ElasticPress\MediaLibraryEmbargo\Search::class, function () {
     beforeEach(function () {
-        \WP_Mock::setUp();
         $this->search = new \ElasticPress\MediaLibraryEmbargo\Search();
-    });
-
-    afterEach(function () {
-        \WP_Mock::tearDown();
     });
     
     it('is registerable', function () {
-        expect($this->search)->to->be->an->instanceof(\Dxw\Iguana\Registerable::class);
+        expect($this->search)->toBeAnInstanceOf(\Dxw\Iguana\Registerable::class);
     });
     
     describe('->register()', function () {
         it('adds the action', function () {
-            \WP_Mock::expectActionAdded('pre_get_posts', [$this->search, 'removeEmbargoDocs']);
+            allow('add_action')->toBeCalled();
+            expect('add_action')->toBeCalled()->once()->with('pre_get_posts', [$this->search, 'removeEmbargoDocs']);
+
             $this->search->register();
         });
     });
     
     describe('->removeEmbargoDocs()', function () {
         beforeEach(function () {
-            $this->query = \Mockery::mock(\WP_Query::class);
+            $this->query = \Kahlan\Plugin\Double::instance([
+                'class' => 'WP_Query'
+            ]);
         });
         context('in admin pages', function () {
             it('does nothing', function () {
-                \WP_Mock::wpFunction('is_admin', [
-                    'times' => 1,
-                    'return' => true
-                ]);
+                allow('is_admin')->toBeCalled()->andReturn(true);
+
                 $this->search->removeEmbargoDocs($this->query);
             });
         });
         context('is an archive', function () {
             it('does nothing', function () {
-                \WP_Mock::wpFunction('is_admin', [
-                    'times' => 1,
-                    'return' => false
-                ]);
-                \WP_Mock::wpFunction('is_archive', [
-                    'times' => 1,
-                    'return' => true
-                ]);
+                allow('is_admin')->toBeCalled()->andReturn(false);
+                allow('is_archive')->toBeCalled()->andReturn(true);
+
                 $this->search->removeEmbargoDocs($this->query);
             });
         });
         context('not a search', function () {
             it('does nothing', function () {
-                \WP_Mock::wpFunction('is_admin', [
-                    'times' => 1,
-                    'return' => false
-                ]);
-                \WP_Mock::wpFunction('is_archive', [
-                    'times' => 1,
-                    'return' => false
-                ]);
-                $this->query->shouldReceive('is_search')
-                    ->once()
+                allow('is_admin')->toBeCalled()->andReturn(false);
+                allow('is_archive')->toBeCalled()->andReturn(false);
+
+                allow($this->query)->toReceive('is_search')
                     ->andReturn(false);
                 $this->search->removeEmbargoDocs($this->query);
             });
         });
         context('is a search', function () {
             it('sets the meta_query', function () {
-                \WP_Mock::wpFunction('is_admin', [
-                    'times' => 1,
-                    'return' => false
-                ]);
-                \WP_Mock::wpFunction('is_archive', [
-                    'times' => 1,
-                    'return' => false
-                ]);
-                $this->query->shouldReceive('is_search')
-                    ->once()
-                    ->andReturn(true);
-                
-                PHPMockery::mock(__NAMESPACE__, 'date')->andReturnUsing(function ($a) {
-                    if ($a === 'Y-m-d H:i:s') {
-                        return '2018-03-01 12:00:01';
-                    }
-                    // Returns false on error
-                    return false;
-                });
+                allow('is_admin')->toBeCalled()->andReturn(false);
+                allow('is_archive')->toBeCalled()->andReturn(false);
+                allow($this->query)->toReceive('is_search')->andReturn(true);
+                allow('DateTime')->toReceive('format')->with('Y-m-d H:i:s')->andReturn('2018-03-01 12:00:01');
 
-                $this->query->shouldReceive('set')
+                allow($this->query)->toReceive('set');
+                expect($this->query)->toReceive('set')
                     ->once()
                     ->with('meta_query', [
                         [
@@ -99,8 +71,8 @@ describe(\ElasticPress\MediaLibraryEmbargo\Search::class, function () {
                             ],
                             [
                                 'key' => 'embargo_datetime',
-                                'compare' => '<=',
                                 'value' => '2018-03-01 12:00:01',
+                                'compare' => '<=',
                                 'type' => 'DATETIME'
                             ]
                         ]
