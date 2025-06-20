@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) {
 Plugin Name: ElasticPress Embargo Attachments
 Plugin URI: http://dxw.com
 Description: Allows embargo times to be set on media library documents, and prevents them appearing in search until the embargo has expired.
-Version: 1.0
+Version: 1.1.0
 Author: dxw
 Author URI: http://dxw.com
 */
