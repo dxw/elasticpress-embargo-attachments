@@ -8,16 +8,16 @@
     "post-update-cmd": "vendor/bin/phar-install"
   },
   "require-dev": {
-      "dxw/phar-install": "^1.0",
-      "friendsofphp/php-cs-fixer": "^2.6.0",
+    "dxw/phar-install": "^1.0",
+    "friendsofphp/php-cs-fixer": "^3.0",
     "kahlan/kahlan": "^6.0"
   },
   "require": {
-    "dxw/iguana": "^1.1"
+    "dxw/iguana": "^1.4"
   },
   "config": {
     "platform": {
-        "php": "7.4"
+        "php": "8.2"
     }
   }
 }
