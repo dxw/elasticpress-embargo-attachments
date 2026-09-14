@@ -4,24 +4,28 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b86ce340636a0dd025297df20695b9df",
+    "content-hash": "00de23a2ed4798cf818ccc707d16e49e",
     "packages": [
         {
             "name": "aura/autoload",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/auraphp/Aura.Autoload.git",
-                "reference": "306a7f8d3cb58fb6f94bcff1dddf20c543f68668"
+                "reference": "a1d576c7f14aa773adc26e34a773a315b8f7dacb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/auraphp/Aura.Autoload/zipball/306a7f8d3cb58fb6f94bcff1dddf20c543f68668",
-                "reference": "306a7f8d3cb58fb6f94bcff1dddf20c543f68668",
+                "url": "https://api.github.com/repos/auraphp/Aura.Autoload/zipball/a1d576c7f14aa773adc26e34a773a315b8f7dacb",
+                "reference": "a1d576c7f14aa773adc26e34a773a315b8f7dacb",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7.21 || ^6.4.4 || ^7.5 || ^8.5 || ^9.6 || ^11.0",
+                "yoast/phpunit-polyfills": "^2.0.5 || ^3.1.2 || ^4.0.0"
             },
             "type": "library",
             "extra": {
@@ -55,9 +59,9 @@
             ],
             "support": {
                 "issues": "https://github.com/auraphp/Aura.Autoload/issues",
-                "source": "https://github.com/auraphp/Aura.Autoload/tree/2.x"
+                "source": "https://github.com/auraphp/Aura.Autoload/tree/2.0.5"
             },
-            "time": "2016-10-03T19:36:19+00:00"
+            "time": "2026-09-09T17:43:37+00:00"
         },
         {
             "name": "dxw/iguana",
@@ -423,6 +427,44 @@
             "time": "2020-04-06T09:47:56+00:00"
         },
         {
+            "name": "dxw/php-cs-fixer-config",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dxw/php-cs-fixer-config.git",
+                "reference": "690a251beb6a3080a2de5adc749675a99e22d9fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dxw/php-cs-fixer-config/zipball/690a251beb6a3080a2de5adc749675a99e22d9fd",
+                "reference": "690a251beb6a3080a2de5adc749675a99e22d9fd",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofphp/php-cs-fixer": "^3.2",
+                "php": "^7.4||^8.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0",
+                "vimeo/psalm": "^5.15"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Dxw\\PhpCsFixerConfig\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "support": {
+                "issues": "https://github.com/dxw/php-cs-fixer-config/issues",
+                "source": "https://github.com/dxw/php-cs-fixer-config/tree/v2.1.1"
+            },
+            "time": "2023-09-13T12:53:23+00:00"
+        },
+        {
             "name": "ergebnis/agent-detector",
             "version": "1.2.0",
             "source": {
@@ -601,16 +643,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.95.24",
+            "version": "v3.95.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "9a4b8050f8768646bf3693ee7416978ceeca6206"
+                "reference": "2cdfc1f3daf173d83a1ebb6177949b58c95de6ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/9a4b8050f8768646bf3693ee7416978ceeca6206",
-                "reference": "9a4b8050f8768646bf3693ee7416978ceeca6206",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/2cdfc1f3daf173d83a1ebb6177949b58c95de6ff",
+                "reference": "2cdfc1f3daf173d83a1ebb6177949b58c95de6ff",
                 "shasum": ""
             },
             "require": {
@@ -693,7 +735,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.95.24"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.95.25"
             },
             "funding": [
                 {
@@ -701,7 +743,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-08-31T15:31:12+00:00"
+            "time": "2026-09-08T11:11:37+00:00"
         },
         {
             "name": "kahlan/kahlan",
